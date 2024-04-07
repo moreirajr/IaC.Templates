@@ -1,3 +1,7 @@
+data "template_file" "user_data" {
+  template = file(var.user_data_file)
+}
+
 resource "aws_instance" "ec2_instance" {
   ami           = var.ami
   instance_type = var.instance_type
@@ -14,6 +18,8 @@ resource "aws_instance" "ec2_instance" {
       device_index = 0
     }
   }
+
+  user_data = data.template_file.user_data.rendered
 
   tags = var.tags
 }

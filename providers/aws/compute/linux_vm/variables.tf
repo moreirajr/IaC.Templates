@@ -29,6 +29,11 @@ variable "vpc_security_group_ids" {
   default = []
 }
 
+variable "user_data_file" {
+  description = "Path of the user data script."
+  type = string
+}
+
 variable "tags" {
   description = "Additional default tags to add to the resources being deployed"
   type        = map(string)

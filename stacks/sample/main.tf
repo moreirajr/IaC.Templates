@@ -61,5 +61,7 @@ module "public_ec2_instance" {
   #network_interface_id =  module.eni.id
   vpc_security_group_ids = [module.sg.id]
 
+  user_data_file = local.user_data_file
+
   tags = var.tags
 }

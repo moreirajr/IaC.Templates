@@ -38,4 +38,6 @@ locals {
         to_port = 0
       }
     ]
+
+    user_data_file = "../../scripts/dotnet_linux.sh"
 }
