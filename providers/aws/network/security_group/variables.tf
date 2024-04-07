@@ -1,19 +1,19 @@
+variable "vpc_id" {
+ type = string 
+}
+
 variable "name" {
   description = "The name of the security group"
   type = string
-}
-
-variable "vpc_id" {
- type = string 
+  default = null
 }
 
 variable "ingress_rules" {
   description = "The ingress rule list"
   type        = list(object({
-    security_group_id     = string
-    cidr_ipv4 = string
+    cidr_blocks = list(string)
     from_port = number
-    ip_protocol = string
+    protocol = string
     to_port = number
   }))
   default     = []
@@ -22,10 +22,9 @@ variable "ingress_rules" {
 variable "egress_rules" {
   description = "The egress rule list"
   type        = list(object({
-    security_group_id     = string
-    cidr_ipv4 = string
+    cidr_blocks = list(string)
     from_port = number
-    ip_protocol = string
+    protocol = string
     to_port = number
   }))
   default     = []

@@ -8,6 +8,11 @@ variable "instance_type" {
   type = string
 }
 
+variable "subnet_id" {
+  description = "The Id of the subnet."
+  type = string
+}
+
 variable "availability_zone" {
   description = "AZ to start the instance in"
   type = string
@@ -15,6 +20,13 @@ variable "availability_zone" {
 
 variable "network_interface_id" {
   type = string
+  default = null
+}
+
+variable "vpc_security_group_ids" {
+  description = "(Optional, VPC only) List of security group IDs to associate with."
+  type = list(string)
+  default = []
 }
 
 variable "tags" {
